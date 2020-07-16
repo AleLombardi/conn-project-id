@@ -27,19 +27,17 @@ public class test {
     	
     	
     	Client client = ClientBuilder.newBuilder().build();
-        WebTarget target = client.target("http://localhost:8080/pw-lombardi/resources/api");
+        WebTarget target = client.target("http://api tuo prestashop server");
         Response response = target.request().get();
         String users = response.readEntity(String.class);
-        //System.out.println(users);
-       
-        
-        
-        String resp = target.path("users").resolveTemplate(users, args).request().accept(MediaType.APPLICATION_JSON)
+        String resp = target.path("users")
+        		.resolveTemplate(users, args).request()
+        		.accept(MediaType.APPLICATION_JSON)
 
 				.get(String.class);
 
 		System.out.println(resp);
-		// System.out.println(addr.getAddresses("id"));
+		
        
     }
 
